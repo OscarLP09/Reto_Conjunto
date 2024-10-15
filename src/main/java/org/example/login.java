@@ -9,7 +9,6 @@ public class login extends JFrame {
     private JPasswordField contrasenaTxt;
     private JTextField usuarioTxt;
     private JButton iniciosesionBtn;
-    private JButton registroBtn;
 
     public login() {
     this.setTitle("Peliculas");
