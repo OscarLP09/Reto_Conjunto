@@ -20,12 +20,12 @@ public class login extends JFrame {
     private JLabel contrasenaLbl;
 
     // Configuración de la ventana
-    public login() {
-    this.setTitle("Peliculas");
-    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setContentPane(Login);
-    this.setSize(300,500);
-    this.setLocationRelativeTo(null);
+    public boolean login() {
+        this.setTitle("Peliculas");
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setContentPane(Login);
+        this.setSize(300, 500);
+        this.setLocationRelativeTo(null);
 
         // Inicialización de los componentes
         JLabel usuarioLbl = new JLabel("Usuario: ");
@@ -34,8 +34,6 @@ public class login extends JFrame {
         contrasenaTxt = new JPasswordField();
         iniciosesionBtn = new JButton("Iniciar Sesión");
         salirBtn = new JButton("Salir");
-
-
 
 
         iniciosesionBtn.addActionListener(new ActionListener() {
@@ -75,7 +73,7 @@ public class login extends JFrame {
         });
 
         // Método para realizar la verificación de login
-        public boolean validateLogin(String username, String password){
+        private boolean validateLogin(username, password) {
             boolean isValid = false;
             Connection conn = null;
             PreparedStatement pst = null;
@@ -93,8 +91,8 @@ public class login extends JFrame {
                 // Consulta SQL para validar usuario y contraseña
                 String sql = "SELECT * FROM Usuario WHERE nombre_usuario = ? AND contraseña = ?";
                 pst = conn.prepareStatement(sql);
-                String username = usuarioTxt.getText();
-                String password = contrasenaTxt.getText();
+                username = usuarioTxt.getText();
+                password = contrasenaTxt.getText();
 
                 pst.setString(1, username);  // Asigna el nombre de usuario al primer parámetro
                 pst.setString(2, password);  // Asigna la contraseña al segundo parámetro
