@@ -36,7 +36,7 @@ public class Login extends JFrame {
 
                 if(usuario != null) {
                     infoTxt.setForeground(Color.GREEN);
-                    infoTxt.setText("Inicio de Sesión exitoso. ¡Bienvenido " + user + " !");
+                    infoTxt.setText("Inicio de Sesión exitoso. ¡Bienvenido " + user + "!");
                 } else {
                     infoTxt.setForeground(Color.RED);
                     infoTxt.setText("Usuario o contraseña incorrectos");
