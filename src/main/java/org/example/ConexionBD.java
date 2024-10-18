@@ -6,11 +6,11 @@ import java.sql.SQLException;
 
 public class ConexionBD {
     private static Connection con = null;
-    private static final String URL = "jdbc:mysql://localhost:3306/peliculas";
+    private static final String URL = "jdbc:mysql://localhost:3306/gestion_peliculas";
     private static final String user = "root";
     private static final String pass = System.getenv("DB_PASSWORD");
 
-    public static Connection getConnection() {
+    public static Connection getConnection() throws SQLException {
         if (con == null) {
             try{
                 con = DriverManager.getConnection(URL, user, pass);
@@ -22,6 +22,16 @@ public class ConexionBD {
         }
         return con;
     }
+
+    public static boolean testConnection() {
+        try (Connection con = DriverManager.getConnection(URL, user, pass)) {
+            return con != null;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
 
     public static void closeConnection() {
         if(con != null) {

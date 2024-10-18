@@ -27,22 +27,36 @@ public class Login extends JFrame {
                 String pass = new String(passwordTxt.getPassword());
 
                 System.out.println("Tocado");
-                if(user.isEmpty()|| pass.isEmpty()) {
+                if (user.isEmpty() || pass.isEmpty()) {
                     infoTxt.setForeground(Color.RED);
                     infoTxt.setText("Necesita rellenar los campos");
-                }
-                UsuarioDAO dao = new UsuarioDAO();
-                Usuario usuario = dao.validarUsuario(user, pass);
-
-                if(usuario != null) {
-                    infoTxt.setForeground(Color.GREEN);
-                    infoTxt.setText("Inicio de Sesión exitoso. ¡Bienvenido " + user + "!");
                 } else {
-                    infoTxt.setForeground(Color.RED);
-                    infoTxt.setText("Usuario o contraseña incorrectos");
+                    UsuarioDAO dao = new UsuarioDAO();
+                    Usuario usuario = dao.validarUsuario(user, pass); // Obtiene el objeto Usuario
+
+                    // Verifica si el objeto Usuario es null
+                    if (usuario != null) {
+                        int idUsuario = usuario.getId();
+                        infoTxt.setForeground(Color.GREEN);
+                        infoTxt.setText("Inicio de Sesión exitoso. ¡Bienvenido " + user + "!");
+                        Copias_Usuario copiasUsuario = new Copias_Usuario(idUsuario); // Pasa el ID del usuario
+                        copiasUsuario.setVisible(true);
+                        dispose(); // Cierra la ventana de login
+                    } else {
+                        infoTxt.setForeground(Color.RED);
+                        infoTxt.setText("Usuario o contraseña incorrectos");
+                    }
                 }
             }
         });
+
+        if (!ConexionBD.testConnection()) {
+            infoTxt.setForeground(Color.RED);
+            infoTxt.setText("Error en la conexión a la base de datos");
+            return;
+        }
+
+
         exitBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -50,8 +64,4 @@ public class Login extends JFrame {
             }
         });
     }
-
-
-
-
 }
