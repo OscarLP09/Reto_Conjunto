@@ -6,11 +6,19 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.List;
 
+/**
+ * Interfaz gráfica para gestionar copias de usuario.
+ */
 public class Copias_Usuario extends JFrame {
     private JList<String> listaCopias;
     private JButton cerrarSesionBtn;
     private int idUsuario; // Para almacenar el ID del usuario
 
+    /**
+     * Constructor de la interfaz.
+     *
+     * @param idUsuario ID del usuario actual.
+     */
     public Copias_Usuario(int idUsuario) {
         this.idUsuario = idUsuario; // Asignar el ID del usuario
         setTitle("Copias de Usuario");

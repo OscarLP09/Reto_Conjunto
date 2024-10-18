@@ -7,8 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Data Access Object para gestionar usuarios en la base de datos.
+ */
 public class UsuarioDAO {
 
+    /**
+     * Valida un usuario según su nombre y contraseña.
+     *
+     * @param nombre_usuario Nombre del usuario.
+     * @param contraseña     Contraseña del usuario.
+     * @return El objeto Usuario si es válido, o null si no lo es.
+     */
     public Usuario validarUsuario(String nombre_usuario, String contraseña) {
         Connection con = null;
         PreparedStatement ps = null;

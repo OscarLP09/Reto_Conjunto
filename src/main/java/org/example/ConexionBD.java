@@ -4,12 +4,21 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ * Clase para gestionar la conexión a la base de datos.
+ */
 public class ConexionBD {
     private static Connection con = null;
     private static final String URL = "jdbc:mysql://localhost:3306/gestion_peliculas";
     private static final String user = "root";
     private static final String pass = System.getenv("DB_PASSWORD");
 
+    /**
+     * Establece y devuelve la conexión a la base de datos.
+     *
+     * @return La conexión establecida.
+     * @throws SQLException Si ocurre un error en la conexión.
+     */
     public static Connection getConnection() throws SQLException {
         if (con == null) {
             try{

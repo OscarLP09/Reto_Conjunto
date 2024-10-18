@@ -7,7 +7,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Data Access Object para gestionar las copias de usuario.
+ */
 public class CopiasDAO {
+
+    /**
+     * Obtiene las copias asociadas a un usuario.
+     *
+     * @param idUsuario Identificador del usuario.
+     * @return Lista de copias.
+     */
     public static List<String> obtenerCopiasPorUsuario(int idUsuario) {
         Connection conn = null;
         PreparedStatement stmt = null;

@@ -5,6 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Ventana de inicio de sesión.
+ */
 public class Login extends JFrame {
     private JButton loginBtn;
     private JButton exitBtn;
@@ -13,6 +16,7 @@ public class Login extends JFrame {
     private JPanel ventana;
     private JLabel infoTxt;
 
+    /** Constructor de la ventana de inicio de sesión. */
     public Login() {
         this.setContentPane(ventana);
         this.setTitle("Login");

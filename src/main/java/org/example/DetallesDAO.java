@@ -5,7 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * Data Access Object para obtener detalles de películas.
+ */
 public class DetallesDAO {
+    /**
+     * Obtiene los detalles de una película por su ID.
+     *
+     * @param idPelicula Identificador de la película.
+     * @return Objeto Pelicula con los detalles.
+     */
     public static Pelicula obtenerDetallesPelicula(int idPelicula) {
         Connection conexion = null;
         PreparedStatement ps = null;

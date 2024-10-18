@@ -5,9 +5,17 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Ventana para mostrar los detalles de una película.
+ */
 public class detalles_peli extends JFrame {
     private int idPelicula;  // Para almacenar el ID de la película seleccionada
 
+    /**
+     * Constructor de la ventana.
+     *
+     * @param idPelicula ID de la película a mostrar.
+     */
     // Componentes
     private JLabel peliculaLabel;
     private JTextArea detallesArea;
